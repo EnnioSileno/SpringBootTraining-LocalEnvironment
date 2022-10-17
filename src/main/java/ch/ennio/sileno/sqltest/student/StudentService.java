@@ -1,6 +1,6 @@
 package ch.ennio.sileno.sqltest.student;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -9,18 +9,15 @@ import java.util.List;
 
 @Component
 public class StudentService {
+    
+    private final StudentRepository studentRepository;
+
+    @Autowired
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
     public List<Student> getStudents() {
-        Student ennio = new Student(1L,
-                "Ennio Sileno",
-                "esileno@gmail.com",
-                LocalDate.of(1997, Month.AUGUST, 10),
-                25);
-        Student robin = new Student(2L,
-                "Robin Sileno",
-                "robin@gmail.com",
-                LocalDate.of(1999, Month.AUGUST, 27),
-                23);
-        return List.of(ennio, robin);
+        return studentRepository.findAll();
     }
 }
