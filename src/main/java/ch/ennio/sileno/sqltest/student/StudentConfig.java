@@ -25,6 +25,7 @@ public class StudentConfig {
                     "robin@gmail.com",
                     LocalDate.of(1999, AUGUST, 27)
             );
+            System.out.println(ennio);
             repository.saveAll(
                     List.of(ennio, robin)
             );
