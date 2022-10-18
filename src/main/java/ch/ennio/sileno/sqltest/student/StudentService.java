@@ -3,8 +3,6 @@ package ch.ennio.sileno.sqltest.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,5 +27,12 @@ public class StudentService {
             throw new IllegalStateException("email already taken");
         }
         studentRepository.save(student);
+    }
+
+    public void deleteStudent(Long studentId) {
+        if(!studentRepository.existsById(studentId)) {
+            throw new IllegalStateException("student with studentId " + studentId + " does not exist");
+        }
+        studentRepository.deleteById(studentId);
     }
 }
