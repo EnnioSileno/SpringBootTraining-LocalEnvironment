@@ -16,13 +16,13 @@ public class StudentConfig {
     CommandLineRunner commandLineRunner(StudentRepository repository) {
         return args -> {
             Student ennio = new Student(1L,
-                    "Ennio Sileno",
-                    "esileno@gmail.com",
+                    "Ennio",
+                    "e@gmail.com",
                     LocalDate.of(1997, AUGUST, 10)
             );
             Student robin = new Student(2L,
-                    "Robin Sileno",
-                    "robin@gmail.com",
+                    "Robin",
+                    "r@gmail.com",
                     LocalDate.of(1999, AUGUST, 27)
             );
             System.out.println(ennio);
